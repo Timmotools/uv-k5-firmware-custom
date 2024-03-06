@@ -299,14 +299,15 @@ const char gSubMenu_RESET[][4] =
 
 const char * const gSubMenu_F_LOCK[] =
 {
-	"DEFAULT+\n137-174\n400-470",
+	"DEFAULT+\n137-174\n400-480",
 	"FCC HAM\n144-148\n420-450",
 	"CE HAM\n144-146\n430-440",
 	"GB HAM\n144-148\n430-440",
 	"137-174\n400-430",
 	"137-174\n400-438",
 	"PMR446",
-	"DISABLE\nALL"
+	"DISABLE\nALL",
+	"UNLOCK\nALL"
 };
 
 const char gSubMenu_BACKLIGHT[][7] =

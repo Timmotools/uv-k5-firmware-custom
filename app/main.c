@@ -172,7 +172,7 @@ static void processFKeyFunction(const KEY_Code_t Key, const bool beep)
 			{
 				Band = gTxVfo->Band + 1;
 				if (gSetting_350EN || Band != BAND5_350MHz) {
-					if (Band > BAND7_470MHz)
+					if (Band > BAND7_480MHz)
 						Band = BAND1_50MHz;
 				}
 				else

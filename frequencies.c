@@ -23,7 +23,7 @@
 
 // the BK4819 has 2 bands it covers, 18MHz ~ 630MHz and 760MHz ~ 1300MHz
 const freq_band_table_t BX4819_band1 = { 1800000,  63000000};
-const freq_band_table_t BX4819_band2 = {84000000, 130000000};
+const freq_band_table_t BX4819_band2 = {76000000, 130000000};
 
 const freq_band_table_t frequencyBandTable[7] =
 {
@@ -34,8 +34,8 @@ const freq_band_table_t frequencyBandTable[7] =
 		{.lower = 13700000,  .upper = 17400000},
 		{.lower = 17400000,  .upper = 35000000},
 		{.lower = 35000000,  .upper = 40000000},
-		{.lower = 40000000,  .upper = 47000000},
-		{.lower = 47000000,  .upper = 60000000}
+		{.lower = 40000000,  .upper = 48000000},
+		{.lower = 48000000,  .upper = 60000000}
 	#else
 		// extended range
 		{.lower =  BX4819_band1.lower, .upper =  10800000},
@@ -43,8 +43,8 @@ const freq_band_table_t frequencyBandTable[7] =
 		{.lower = 13700000, .upper =  17400000},
 		{.lower = 17400000, .upper =  35000000},
 		{.lower = 35000000, .upper =  40000000},
-		{.lower = 40000000, .upper =  47000000},
-		{.lower = 47000000, .upper = BX4819_band2.upper}
+		{.lower = 40000000, .upper =  48000000},
+		{.lower = 48000000, .upper = BX4819_band2.upper}
 	#endif
 };
 
@@ -168,7 +168,7 @@ int TX_freq_check(const uint32_t Frequency)
 					return 0;
 			if (Frequency >= frequencyBandTable[BAND6_400MHz].lower && Frequency < frequencyBandTable[BAND6_400MHz].upper)
 				return 0;
-			if (Frequency >= frequencyBandTable[BAND7_470MHz].lower && Frequency <= 60000000)
+			if (Frequency >= frequencyBandTable[BAND7_480MHz].lower && Frequency <= 60000000)
 				if (gSetting_500TX)
 					return 0;
 			break;
@@ -214,6 +214,12 @@ int TX_freq_check(const uint32_t Frequency)
 			break;
 
 		case F_LOCK_ALL:
+			break;
+
+		case F_LOCK_NONE:
+			for (uint32_t i = 0; i < ARRAY_SIZE(frequencyBandTable); i++)
+				if (Frequency >= frequencyBandTable[i].lower && Frequency < frequencyBandTable[i].upper)
+					return 0;
 			break;
 	}
 

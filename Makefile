@@ -12,13 +12,13 @@ ENABLE_LTO                    := 1
 # ---- STOCK QUANSHENG FERATURES ----
 ENABLE_UART                   := 1
 ENABLE_AIRCOPY                := 0
-ENABLE_FMRADIO                := 1
+ENABLE_FMRADIO                := 0
 ENABLE_NOAA                   := 0
 ENABLE_VOICE                  := 0
-ENABLE_VOX                    := 1
+ENABLE_VOX                    := 0
 ENABLE_ALARM                  := 0
 ENABLE_TX1750                 := 0
-ENABLE_PWRON_PASSWORD         := 1
+ENABLE_PWRON_PASSWORD         := 0
 ENABLE_DTMF_CALLING           := 0
 
 # ---- CUSTOM MODS ----
@@ -26,10 +26,10 @@ ENABLE_BIG_FREQ                         := 1
 ENABLE_SMALL_BOLD                       := 1
 ENABLE_KEEP_MEM_NAME                    := 1
 ENABLE_WIDE_RX                          := 1
-ENABLE_TX_WHEN_AM                       := 0
+ENABLE_TX_WHEN_AM                       := 1
 ENABLE_F_CAL_MENU                       := 0
-ENABLE_SHOW_CHARGE_LEVEL                := 0
-ENABLE_REVERSE_BAT_SYMBOL               := 0
+ENABLE_SHOW_CHARGE_LEVEL                := 1
+ENABLE_REVERSE_BAT_SYMBOL               := 1
 ENABLE_NO_CODE_SCAN_TIMEOUT             := 1
 ENABLE_SQUELCH_MORE_SENSITIVE           := 0
 ENABLE_FASTER_CHANNEL_SCAN              := 1
@@ -215,7 +215,7 @@ ifneq (, $(shell $(WHERE) git))
     	VERSION_STRING := $(shell git rev-parse --short HEAD)
 	endif
 endif
-#VERSION_STRING := 230930b
+VERSION_STRING := TIMMOTOOLS
 
 
 ASFLAGS = -c -mcpu=cortex-m0

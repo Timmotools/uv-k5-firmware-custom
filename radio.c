@@ -73,7 +73,7 @@ bool RADIO_CheckValidChannel(uint16_t Channel, bool bCheckScanList, uint8_t VFO)
 
 	att = gMR_ChannelAttributes[Channel];
 
-	if (att.band > BAND7_470MHz)
+	if (att.band > BAND7_480MHz)
 		return false;
 
 	if (bCheckScanList) {
@@ -201,7 +201,7 @@ void RADIO_ConfigureChannel(const unsigned int VFO, const unsigned int configure
 	}
 
 	uint8_t band = att.band;
-	if (band > BAND7_470MHz) {
+	if (band > BAND7_480MHz) {
 		band = BAND6_400MHz;
 	}
 
