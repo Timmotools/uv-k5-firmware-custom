@@ -34,9 +34,9 @@ void ACTION_RunSpectrum(void);
 #ifdef ENABLE_ALARM
 	//static void ACTION_AlarmOr1750(bool b1750)
 #endif
-#ifdef ENABLE_FMRADIO
+//#ifdef ENABLE_FMRADIO
 	void ACTION_FM(void);
-#endif
+//#endif
 void ACTION_SwitchDemodul(void);
 
 #ifdef ENABLE_BLMIN_TMP_OFF

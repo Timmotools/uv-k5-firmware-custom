@@ -246,6 +246,16 @@ void ACTION_Scan(bool bRestart)
 			gRequestDisplayScreen = DISPLAY_FM;
 		}
 	}
+#else
+	void ACTION_FM(void)
+	{
+		gTxVfo->TX_OFFSET_FREQUENCY_DIRECTION++;
+		if (gTxVfo->TX_OFFSET_FREQUENCY_DIRECTION > TX_OFFSET_FREQUENCY_DIRECTION_SUB)
+			gTxVfo->TX_OFFSET_FREQUENCY_DIRECTION = TX_OFFSET_FREQUENCY_DIRECTION_OFF;
+
+		gRequestSaveChannel = 1;
+		//gRequestDisplayScreen = gScreenToDisplay;
+	}
 #endif
 
 void ACTION_RunSpectrum(void)
@@ -402,11 +412,11 @@ void ACTION_Handle(KEY_Code_t Key, bool bKeyPressed, bool bKeyHeld)
 			ACTION_AlarmOr1750(false);
 #endif
 			break;
-#ifdef ENABLE_FMRADIO
+//#ifdef ENABLE_FMRADIO
 		case ACTION_OPT_FM:
 			ACTION_FM();
 			break;
-#endif
+//#endif
 		case ACTION_OPT_1750:
 			#ifdef ENABLE_TX1750
 				ACTION_AlarmOr1750(true);

@@ -104,15 +104,15 @@ static void processFKeyFunction(const KEY_Code_t Key, const bool beep)
 	switch (Key)
 	{
 		case KEY_0:
-			#ifdef ENABLE_FMRADIO
+//			#ifdef ENABLE_FMRADIO
 				ACTION_FM();
-			#else
-
+//			#else
+			
 
 				// TODO: make use of this function key
 
 
-			#endif
+//			#endif
 			break;
 
 		case KEY_1:
